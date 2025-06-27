@@ -184,7 +184,7 @@ DefineBroker(Volume, long);
 /* Deprecated InitMQL4Env() variable */
 void InitMQL4Env()
 {
-   // Bars conflicts with Bars function, so it’s impossible to replace it with a 
+   // Bars conflicts with Bars function, so itâ€™s impossible to replace it with a 
  	Bars = Bars(_Symbol,_Period);
 }
 
@@ -217,7 +217,7 @@ double AccountEquity()
 
 double AccountFreeMargin()
 {
-   return AccountInfoDouble(ACCOUNT_FREEMARGIN);
+   return AccountInfoDouble(ACCOUNT_MARGIN_FREE);
 }
 double AccountFreeMarginCheck(const string Symb,const int Cmd,const double dVolume)
 {
@@ -371,22 +371,22 @@ bool IsExpertEnabled()
 
 bool IsLibrariesAllowed()
 {
-   return (bool) MQL5InfoInteger(MQL5_DLLS_ALLOWED);
+   return (bool) MQLInfoInteger(MQL_DLLS_ALLOWED);
 }
 
 bool IsOptimization()
 {
-   return (bool) MQL5InfoInteger(MQL5_DLLS_ALLOWED);
+   return (bool) MQLInfoInteger(MQL_DLLS_ALLOWED);
 }
 
 bool IsTesting()
 {
-   return (bool) MQL5InfoInteger(MQL5_TESTING);
+   return (bool) MQLInfoInteger(MQL_TESTER);
 }
 
 bool IsTradeAllowed()
 {
-   return (bool) MQL5InfoInteger(MQL5_TRADE_ALLOWED);
+   return (bool) MQLInfoInteger(MQL_TRADE_ALLOWED);
 }
 
 bool IsTradeContextBusy()
@@ -398,7 +398,7 @@ return false;
 
 bool IsVisualMode()
 {
-   return (bool) MQL5InfoInteger(MQL5_VISUAL_MODE);
+   return (bool) MQLInfoInteger(MQL_VISUAL_MODE);
 }
 
 //Client Terminal
@@ -1844,13 +1844,13 @@ return (int) ChartGetInteger(0,CHART_VISIBLE_BARS,0);
 
 string WindowExpertName()
 {
-return MQL5InfoString(MQL5_PROGRAM_NAME);
+return MQLInfoString(MQL_PROGRAM_NAME);
 }
 
 int WindowFind(string name)
 {
    int window=-1;
-   if((ENUM_PROGRAM_TYPE)MQL5InfoInteger(MQL5_PROGRAM_TYPE)==PROGRAM_INDICATOR)
+   if((ENUM_PROGRAM_TYPE)MQLInfoInteger(MQL_PROGRAM_TYPE)==PROGRAM_INDICATOR)
      {
       window=ChartWindowFind();
      }
