@@ -156,9 +156,9 @@ ENUM_TIMEFRAMES TFMigrate(int tf)
 #define Ask (::SymbolInfoDouble(_Symbol, ::SYMBOL_ASK))
 
 /* Bars variable */
-double Bars = Bars(_Symbol,_Period);
+//double Bars = Bars(_Symbol,_Period);
 
-int Digits=_Digits;
+//int Digits=_Digits;
 bool True = true;
 bool False = false;
 
@@ -181,12 +181,12 @@ DefineBroker(Low, double);
 DefineBroker(Close, double);
 DefineBroker(Volume, long);
 
-/* Deprecated InitMQL4Env() variable */
+/* Deprecated InitMQL4Env() variable
 void InitMQL4Env()
 {
    // Bars conflicts with Bars function, so it’s impossible to replace it with a 
  	Bars = Bars(_Symbol,_Period);
-}
+}*/
 
 
 // Account Information
